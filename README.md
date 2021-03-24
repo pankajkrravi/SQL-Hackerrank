@@ -242,7 +242,14 @@ group by co.continent;
 ### Note : TRUNC(n,i): The TRUNC function returns n truncated to i decimal places. If i is omitted, then n is truncated to 0 places. i can be negative to truncate (make zero) n digits left of the decimal point. Following is the example of TRUNC function, with i as positive, zero and negitive values.
 ### FLOOR(n): The FLOOR function returns the largest INTEGER that is equal to or less than n.
 
-### 30. 
+### 30. The Report
+
+You are given two tables: Students and Grades. Students contains three columns ID, Name and Marks.
+
+Grades contains the following data:
+
+Ketty gives Eve a task to generate a report containing three columns: Name, Grade and Mark. Ketty doesn't want the NAMES of those students who received a grade lower than 8. The report must be in descending order by grade -- i.e. higher grades are entered first. If there is more than one student with the same grade (8-10) assigned to them, order those particular students by their name alphabetically. Finally, if the grade is lower than 8, use "NULL" as their name and list them by their grades in descending order. If there is more than one student with the same grade (1-7) assigned to them, order those particular students by their marks in ascending order.
+
 
 **solution- 1
  SELECT 
@@ -253,7 +260,8 @@ group by co.continent;
         THEN NULL
     END, Grades.Grade, Students.Marks FROM Students INNER JOIN Grades ON Students.Marks BETWEEN Grades.Min_Mark AND Max_Mark ORDER BY Grades.Grade DESC, Students.Name ASC, Students.Marks ASC;
     ------------------------------------------------------
-**    solution -- 2
+  solution -- 2
+  
   SELECT Students.Name, Grades.Grade, Students.Marks 
   FROM Students 
   INNER JOIN Grades ON Students.Marks BETWEEN Grades.Min_Mark AND Max_Mark
