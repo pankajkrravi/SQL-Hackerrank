@@ -42,4 +42,57 @@ where mod(id, 2) = 0 order by city asc;
 9. Find the difference between the total number of CITY entries in the table and the number of distinct CITY entries in the table.
 select count(city) - count(distinct(city))from station;
 
-10.
+10. Query the list of CITY names starting with vowels (i.e., a, e, i, o, or u) from STATION. Your result cannot contain duplicates.
+
+select distinct city
+from station 
+where city like 'a%' OR city like 'e%' OR city like 'i%' OR city like 'o%' OR city like 'u%';
+
+11. Query the list of CITY names ending with vowels (a, e, i, o, u) from STATION. Your result cannot contain duplicates.
+select distinct city
+from station 
+where city like '%a' OR city like '%e' OR city like '%i' OR city like '%o' OR city like '%u';
+
+12. Weather Observation Station 8
+
+Query the list of CITY names from STATION which have vowels (i.e., a, e, i, o, and u) as both their first and last characters. Your result cannot contain duplicates.
+
+select distinct city
+from station 
+where (city like '%a' OR city like '%e' OR city like '%i' OR city like '%o' OR city like '%u')AND 
+(city like 'a%' OR city like 'e%' OR city like 'i%' OR city like 'o%' OR city like 'u%');
+
+13. Weather Observation Station 9
+Query the list of CITY names from STATION that do not start with vowels. Your result cannot contain duplicates.
+
+select distinct city
+from station 
+where not(city like 'a%' OR city like 'e%' OR city like 'i%' OR city like 'o%' OR city like 'u%');
+
+14. Weather Observation Station 10
+Query the list of CITY names from STATION that do not end with vowels. Your result cannot contain duplicates.
+
+select distinct city
+from station 
+where not(city like '%a' OR city like '%e' OR city like '%i' OR city like '%o' OR city like '%u');
+
+15. Weather Observation Station 11
+
+Query the list of CITY names from STATION that either do not start with vowels or do not end with vowels. Your result cannot contain duplicates.
+
+
+select distinct city
+from station 
+where not(city like '%a' OR city like '%e' OR city like '%i' OR city like '%o' OR city like '%u')or 
+not(city like 'a%' OR city like 'e%' OR city like 'i%' OR city like 'o%' OR city like 'u%');
+
+16.Weather Observation Station 12
+Query the list of CITY names from STATION that do not start with vowels and do not end with vowels. Your result cannot contain duplicates.
+
+select distinct city
+from station 
+where not(city like '%a' OR city like '%e' OR city like '%i' OR city like '%o' OR city like '%u')and 
+not(city like 'a%' OR city like 'e%' OR city like 'i%' OR city like 'o%' OR city like 'u%');
+
+17. 
+
